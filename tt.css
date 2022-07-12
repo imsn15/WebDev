@@ -1,0 +1,41 @@
+body {
+	background-color: white;
+}
+table {
+	
+	border: solid 1px ;
+	border-collapse: collapse ;
+	align-content: center;
+}
+td {
+	border: solid 1px ;
+	border-collapse: collapse ;	
+}
+th{
+	border: solid 1px ;
+	 border-collapse: collapse ;
+
+
+}
+table.nametb {
+
+	margin-left: 300px;
+	display: inline-table;
+
+}
+table.inctb{
+	margin-left: 30px;
+	display: inline-table;
+
+}
+
+#rp2,#rp1 {
+	align-content: center;
+	font-size: large;
+	writing-mode: vertical-rl;
+	background-color: #F1F7E7;
+}
+
+#th {
+	background-color: lightgray;
+}
