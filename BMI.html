@@ -1,0 +1,38 @@
+<html>
+<head>
+    <title>BMI Calculator</title>
+</head>
+<body>
+    <form action="" method="post">
+        <h1><strong>BMI Calculator</strong></h1>
+        Your Weight(kg) <input type=text name="weight"></input><br/><br>
+        Your Height(cm) <input type=text name="height"></input><br/><br>
+        <input type="button" name="btnsbt" value="Calculate BMI"></input>
+    </form>
+    <?php
+     if(isset($_POST["btnsbt"]))
+     {
+         $weight=$_POST["weight"];
+         $height=$_POST["height"];
+         $bmi=$weight/($height*$height);
+         echo "Your BMI :" $bmi<br>;
+        if($bmi<18.5)
+        {
+            echo "This Means: You are Underweight";
+        }
+        else if($bmi>=18.5 && $bmi<=24.9)
+        {
+            echo "This Means: You are Normal";
+        }
+        else if($bmi>=25.0 && $bmi<=29.9)
+        {
+            echo "This Means: You are Overweight";
+        }
+        else
+        {
+            echo "This Means: You are Obese";
+        }
+     }
+     ?>
+</body>
+</html>
