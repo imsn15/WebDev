@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script>
+        let selectedColor = "";
+        let flag = false;
+        let clickCount = 0;
+        function selected(color) {
+            flag = true;
+            selectedColor = color;
+            document.getElementById("lab").innerHTML = `Selected ${color}`;
+            document.getElementById("col").style.background = color;
+            document.getElementById("col").style.border = "1px solid black";
+
+        }
+        function logic(id) {
+
+            let presentColor = document.getElementById(id);
+
+            if (presentColor.style.backgroundColor !== "gray") {
+                presentColor.style.backgroundColor = "gray";
+                clickCount++;
+            }
+            else if (clickCount != 10 && presentColor.style.backgroundColor === 'gray') {
+                if (flag) {
+                    presentColor.style.backgroundColor = selectedColor;
+                    clickCount++;
+                }
+                else {
+                    document.getElementById("lab").innerHTML = "Please Select color";
+                }
+            }
+            else if (clickCount == 10) {
+                alert("Clicked 10 Times!!");
+                clickCount = 0;
+            }
+
+        }
+    </script>
+    <style>
+        .upper {
+            width: 60px;
+            height: 60px;
+
+
+            display: inline-block;
+        }
+
+        .middle {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            border: black solid 1px;
+        }
+
+        .middle:hover {
+            border: black solid 2px;
+            cursor: pointer;
+        }
+
+        #col {
+            width: 15px;
+            height: 16px;
+
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div>
+        <div class="upper" id="one-one" onclick="logic('one-one')" style="background: gray;"></div>
+        <div class="upper" id="one-two" onclick="logic('one-two')" style="background: gray;"></div>
+        <div class="upper" id="one-three" onclick="logic('one-three')" style="background: gray;"></div>
+        <div class="upper" id="one-four" onclick="logic('one-four')" style="background: gray;"></div>
+    </div>
+
+    <div>
+        <div class="upper" style="background: gray;" id="two-one" onclick="logic('two-one')"></div>
+        <div class="upper" style="background: gray;" id="two-two" onclick="logic('two-two')"></div>
+        <div class="upper" style="background: gray;" id="two-three" onclick="logic('two-three')"></div>
+        <div class="upper" style="background: gray;" id="two-four" onclick="logic('two-four')"></div>
+    </div>
+    <div>
+        <div class="upper" style="background: gray;" id="three-one" onclick="logic('three-one')"></div>
+        <div class="upper" style="background: gray;" id="three-two" onclick="logic('three-two')"></div>
+        <div class="upper" style="background: gray;" id="three-three" onclick="logic('three-three')"></div>
+        <div class="upper" style="background: gray;" id="three-four" onclick="logic('three-four')"></div>
+    </div>
+    <div>
+        <div class="upper" style="background: gray;" id="four-one" onclick="logic('four-one')"></div>
+        <div class="upper" style="background: gray;" id="four-two" onclick="logic('four-two')"></div>
+        <div class="upper" style="background: gray;" id="four-three" onclick="logic('four-three')"></div>
+        <div class="upper" style="background: gray;" id="four-four" onclick="logic('four-four')"></div>
+    </div>
+    <br><br><br>
+    <div class="middle" style="background: orangered" onclick="selected(this.style.background)"></div>
+    <div class="middle" style="background: lightblue" onclick="selected(this.style.background)"></div>
+    <div class="middle" style="background: springgreen" onclick="selected(this.style.background)"></div>
+    <div class="middle" style="background: greenyellow" onclick="selected(this.style.background)"></div>
+    <br>
+    <form name="form">
+        <label id="lab" style="display: inline-block; font-size:x-large;"></label>
+        <div id="col" style="display: inline-block;"></div>
+    </form>
+</body>
+
+</html>
